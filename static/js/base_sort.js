@@ -47,15 +47,32 @@ function fillBox(value=byId("slider").value) {
 
     elements = [];
 
+    // for (let i = 0; i < value; i++) {
+    //     let element = document.createElement("div");
+    //     element.classList.add("element");
+    //     element.style.left = i*size + "%";
+    //     element.style.width = size + "%";
+    //     element.style.height = (i+1)*size + "%";
+    //     elements.push(element);
+    //     box.append(element);
+    // }
     for (let i = 0; i < value; i++) {
         let element = document.createElement("div");
         element.classList.add("element");
-        element.style.left = i*size + "%";
+        element.style.left = i * size + "%";
         element.style.width = size + "%";
-        element.style.height = (i+1)*size + "%";
+        element.style.height = (i + 1) * size + "%";
+        // element.style.height = (i + 1) * size * 0.6 + "%"; // Reduce the height of the bars
+    
+        let num = document.createElement("div");
+        num.classList.add("num");
+        num.textContent = i + 1; // Display height value inside the bar
+        element.appendChild(num);
+    
         elements.push(element);
         box.append(element);
     }
+    
 }
 
 function clearBox(box) {
